@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+  version="2.4">
+
+  <servlet>
+    <servlet-name>CustomAuth1</servlet-name>
+    <servlet-class>classes.CustomAuth1</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CustomAuth1</servlet-name>
+    <url-pattern>/CustomAuth1</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CustomAuth2</servlet-name>
+    <servlet-class>classes.CustomAuth2</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CustomAuth2</servlet-name>
+    <url-pattern>/CustomAuth2</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>classes.Login2</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>LoginCheck</servlet-name>
+    <servlet-class>classes.LoginCheck2</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>LoginCheck</servlet-name>
+    <url-pattern>/LoginCheck</url-pattern>
+  </servlet-mapping>
+</web-app>
