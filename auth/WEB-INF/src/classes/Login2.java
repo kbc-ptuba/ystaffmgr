@@ -10,7 +10,7 @@ public class Login2 extends HttpServlet {
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 3L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException{
@@ -23,7 +23,7 @@ public class Login2 extends HttpServlet {
         out.println("<title>ログインページ</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>あああ</h1>");
+        out.println("<h1>ログイン</h1>");
         HttpSession session = request.getSession(true);
 
         /* 認証失敗から呼び出されたのかどうか */
@@ -37,7 +37,7 @@ public class Login2 extends HttpServlet {
         }
         
         /*ServletContext context = this.getServletContext();		//
-        out.println("ContetPath=" + context.getContextPath());		//
+        out.println("ContetPatsh=" + context.getContextPath());		//
         out.println("ServletPath=" + request.getServletPath());	*/
     
         out.println("<form method=\"POST\" action=\"/auth/LoginCheck\" name=\"loginform\">");

@@ -5,6 +5,22 @@
    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
   version="2.4">
 
+ <filter>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class>classes.AuthFilter1</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>/CustomAuth1</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>/CustomAuth2</url-pattern>
+  </filter-mapping>
+
+
   <servlet>
     <servlet-name>CustomAuth1</servlet-name>
     <servlet-class>classes.CustomAuth1</servlet-class>
@@ -44,4 +60,15 @@
     <servlet-name>LoginCheck</servlet-name>
     <url-pattern>/LoginCheck</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>classes.Logout1</servlet-class>
+  </servlet>
+  
+    <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

@@ -10,7 +10,7 @@ public class LoginCheck2 extends HttpServlet {
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 	protected Connection conn = null;
 
     public void init() throws ServletException{
