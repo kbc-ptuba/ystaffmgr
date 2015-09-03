@@ -71,4 +71,53 @@
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+    <servlet-name>select</servlet-name>
+    <jsp-file>/select_emp.jsp</jsp-file>
+  </servlet>
+  
+     <servlet-mapping>
+    <servlet-name>select</servlet-name>
+    <url-pattern>/select_emp</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>practice</servlet-name>
+    <jsp-file>/itiran.jsp</jsp-file>
+  </servlet>
+  
+     <servlet-mapping>
+    <servlet-name>practice</servlet-name>
+    <url-pattern>/itiran.jsp</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>show</servlet-name>
+    <jsp-file>/show.jsp</jsp-file>
+  </servlet>
+  
+     <servlet-mapping>
+    <servlet-name>show</servlet-name>
+    <url-pattern>/show</url-pattern>
+  </servlet-mapping>
+  
+<servlet>
+    <servlet-name>pro</servlet-name>
+    <servlet-class>classes.Proc</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>pro</servlet-name>
+    <url-pattern>/pro</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>database</servlet-name>
+    <servlet-class>classes.DBAccess</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>database</servlet-name>
+    <url-pattern>/DBAccess</url-pattern>
+  </servlet-mapping>
 </web-app>

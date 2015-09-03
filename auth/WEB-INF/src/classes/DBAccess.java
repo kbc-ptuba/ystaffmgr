@@ -51,7 +51,7 @@ public class DBAccess {
     }
     
     public  PreparedStatement prepareStatement(String str) throws SQLException{
-			PreparedStatement rs = this.connection.prepareStatement(str);
+			PreparedStatement rs = connection.prepareStatement(str);
 			return rs;
     
     }
