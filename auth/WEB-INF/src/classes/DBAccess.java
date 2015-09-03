@@ -12,13 +12,6 @@ public class DBAccess {
     private Statement statement;
     private ResultSet resultset;
  
-    /**
-     * �R���X�g���N�^
-     * @param driver �h���C�o�[
-     * @param url URL
-     * @param user ���[�U�[��
-     * @param password �p�X���[�h
-     */
     public DBAccess(String driver, String url, String user, String password) {
         this.driver = driver;
         this.url = url;
@@ -26,10 +19,7 @@ public class DBAccess {
         this.password = password;
     }
  
-    /**
-     * �����Ȃ��̃R���X�g���N�^
-     * ����l���g�p����
-     */
+
     public DBAccess() {
         driver = "oracle.jdbc.driver.OracleDriver";
         url = "jdbc:oracle:thin:@localhost:1521:myorcl";
@@ -37,19 +27,12 @@ public class DBAccess {
         password = "neha";
     }
  
-    /**
-     * �f�[�^�x�[�X�ւ̐ڑ����s��
-     */
     public void open() throws Exception {
         Class.forName(driver);
         connection = DriverManager.getConnection(url, user, password);
         statement = connection.createStatement();
     }
  
-    /**
-     * SQL �������s�������ʂ� ResultSet ��Ԃ�
-     * @param sql SQL ��
-     */
     public ResultSet getResultSet(String sql) throws Exception {
          statement.executeQuery(sql) ; 
             return statement.getResultSet();
@@ -57,17 +40,10 @@ public class DBAccess {
         
     }
  
-    /**
-     * SQL ���̎��s
-     * @param sql SQL ��
-     */
     public void executeQuery(String sql) throws Exception {
         statement.execute(sql);
     }
  
-    /**
-     * �f�[�^�x�[�X�ւ̃R�l�N�V�����̃N���[�Y
-     */
     public void close() throws Exception {
         if ( resultset != null ) resultset.close();
         if ( statement != null ) statement.close();
