@@ -34,10 +34,10 @@ public class Proc extends HttpServlet {
        // Connection db = DBManager.getConnection();
         
        try{        	    
-        	String sql = "select emp_id,emp_name from user_master where emp_id = ?";
-        	PreparedStatement pstmt = db.prepareStatement(sql);
+        	//String sql = "select emp_id,emp_name from user_master where emp_id = ?";
+        	//PreparedStatement pstmt = db.prepareStatement(sql);
         	
-        	pstmt.setInt(1,ss);
+        	//pstmt.setInt(1,ss);
         	
         	//ResultSet rs = pstmt.executeQuery(sql);
 
