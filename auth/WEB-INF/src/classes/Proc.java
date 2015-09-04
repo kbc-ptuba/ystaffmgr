@@ -13,8 +13,9 @@ public class Proc extends HttpServlet {
 
 	 public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         
+		 res.setContentType("text/html charset=UTF-8");
 		 PrintWriter out = res.getWriter();
-		 
+		 String na = "前田";
 
         String userid = req.getParameter("userId");	//受け渡しは絶対にできている
         int ss	= Integer.parseInt(userid);
@@ -53,7 +54,8 @@ public class Proc extends HttpServlet {
 */        	
             //SQL文が発行出来ているのかチェック用
             out.println("emp_id = " + id);
-            out.println("emp_name = " + name);
+            out.println("名前は = " + na);
+            System.out.print(na);
         	}
         	}catch (SQLException e){
         	    log("SQLException:" + e.getMessage());
