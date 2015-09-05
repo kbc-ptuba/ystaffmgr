@@ -15,23 +15,23 @@ public class Login2 extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException{
 
-        response.setContentType("text/html; charset=Shift_JIS");
+        response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
 
         out.println("<html>");
         out.println("<head>");
-        out.println("<title>ƒƒOƒCƒ“ƒy[ƒW</title>");
+        out.println("<title>ãƒ­ã‚°ã‚¤ãƒ³ãƒšãƒ¼ã‚¸</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>ƒƒOƒCƒ“</h1>");
+        out.println("<h1>ãƒ­ã‚°ã‚¤ãƒ³</h1>");
         HttpSession session = request.getSession(true);
 
-        /* ”FØ¸”s‚©‚çŒÄ‚Ño‚³‚ê‚½‚Ì‚©‚Ç‚¤‚© */
+        /* èªè¨¼å¤±æ•—ã‹ã‚‰å‘¼ã³å‡ºã•ã‚ŒãŸã®ã‹ã©ã†ã‹ */
         Object status = session.getAttribute("status");
 
         if (status != null){
-            out.println("<p>”FØ‚É¸”s‚µ‚Ü‚µ‚½</p>");
-            out.println("<p>Ä“xƒ†[ƒU[–¼‚ÆƒpƒXƒ[ƒh‚ğ“ü—Í‚µ‚Ä‰º‚³‚¢</p>");
+            out.println("<p>èªè¨¼ã«å¤±æ•—ã—ã¾ã—ãŸ</p>");
+            out.println("<p>å†åº¦ãƒ¦ãƒ¼ã‚¶ãƒ¼åã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã—ã¦ä¸‹ã•ã„</p>");
 
             session.setAttribute("status", null);
         }
@@ -43,11 +43,11 @@ public class Login2 extends HttpServlet {
         out.println("<form method=\"POST\" action=\"/auth/LoginCheck\" name=\"loginform\">");
         out.println("<table>");
         out.println("<tr>");
-        out.println("<td>ƒ†[ƒU[–¼</td>");
+        out.println("<td>ãƒ¦ãƒ¼ã‚¶ãƒ¼å</td>");
         out.println("<td><input type=\"text\" name=\"user\" size=\"32\"></td>");
         out.println("</tr>");
         out.println("<tr>");
-        out.println("<td>ƒpƒXƒ[ƒh</td>");
+        out.println("<td>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰</td>");
         out.println("<td><input type=\"password\" name=\"pass\" size=\"32\"></td>");
         out.println("</tr>");
         out.println("<tr>");

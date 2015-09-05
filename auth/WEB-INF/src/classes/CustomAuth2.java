@@ -18,13 +18,13 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 
     out.println("<html>");
     out.println("<head>");
-    out.println("<title>ƒ†[ƒU[”FØƒeƒXƒg</title>");
+    out.println("<title>ãƒ¦ãƒ¼ã‚¶ãƒ¼èªè¨¼ãƒ†ã‚¹ãƒˆ</title>");
     out.println("</head>");
     out.println("<body>");
 
-    out.println("<p>ƒeƒXƒgƒy[ƒW2</p>");
-    out.println("<p><a href=\"/auth/CustomAuth1\">ƒeƒXƒgƒy[ƒW1‚Ö</a></p>");
-    out.println("<p><a href=\"/auth/Logout\">ƒƒOƒAƒEƒg</a></p>");
+    out.println("<p>ãƒ†ã‚¹ãƒˆãƒšãƒ¼ã‚¸2</p>");
+    out.println("<p><a href=\"/auth/CustomAuth1\">ãƒ†ã‚¹ãƒˆãƒšãƒ¼ã‚¸1ã¸</a></p>");
+    out.println("<p><a href=\"/auth/Logout\">ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</a></p>");
     
     out.println("</body>");
     out.println("</html>");

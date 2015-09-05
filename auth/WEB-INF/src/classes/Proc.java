@@ -2,7 +2,6 @@ package classes;
 
 import java.io.*;
 import java.sql.*;
-import java.sql.PreparedStatement;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -34,10 +33,10 @@ public class Proc extends HttpServlet {
        // Connection db = DBManager.getConnection();
         
        try{        	    
-        	//String sql = "select emp_id,emp_name from user_master where emp_id = ?";
-        	//PreparedStatement pstmt = db.prepareStatement(sql);
+        	String sql = "select emp_id,emp_name from user_master where emp_id = ?";
+        	PreparedStatement pstmt = db.prepareStatement(sql);
         	
-        	//pstmt.setInt(1,ss);
+        	pstmt.setInt(1,ss);
         	
         	//ResultSet rs = pstmt.executeQuery(sql);
 
@@ -47,15 +46,15 @@ public class Proc extends HttpServlet {
         	int id = rs.getInt("emp_id");
         	String name = rs.getString("emp_name");
         	
-/*        	HttpSession session = req.getSession(true);
+        	HttpSession session = req.getSession(true);
         	session.setAttribute("id",id);
         	session.setAttribute("name",name);
         	res.sendRedirect("/local_pro/show.jsp");
-*/        	
+       	
             //SQL文が発行出来ているのかチェック用
-            out.println("emp_id = " + id);
-            out.println("名前は = " + na);
-            System.out.print(na);
+            //out.println("emp_id = " + id);
+            //out.println("名前は = " + name);
+            System.out.print(name);
         	}
         	}catch (SQLException e){
         	    log("SQLException:" + e.getMessage());
