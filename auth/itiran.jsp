@@ -11,7 +11,12 @@
 <body>
 <form name=f method=POST action="./pro">
 
+<% 
+classes.DBAccess db = new classes.DBAccess();
 
+//データベースへのアクセス
+db.open();
+%>
 
 
     <table border="1" width="15%" cellspacing="0">
