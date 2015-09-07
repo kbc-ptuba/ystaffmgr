@@ -90,21 +90,7 @@ public class Proc extends HttpServlet {
         		getServletConfig().getServletContext().
     				getRequestDispatcher("/show.jsp" ).
     					forward(req,res);
-        		
-        	
-/*        	while(rs2.next()) {
-    		String exec  = rs2.getString("exec");	//役職
-    		req.setAttribute("exec",exec);
-        	}
-        	while(rs3.next()) {
-        	String dept1 = rs3.getString("dept1");	//所属部署
-    		req.setAttribute("dept1",dept1);
-        	}
-        	while(rs4.next()) {
-        	String dept2 = rs4.getString("dept2");	//所属課
-    		req.setAttribute("dept2",dept2);
-        	}
-*/        	
+        		   	
         	db.close();
         	
         	}catch (SQLException e){
