@@ -130,7 +130,6 @@
     <servlet-name>pro2</servlet-name>
     <url-pattern>/pro2</url-pattern>
   </servlet-mapping>
-  
 
    <servlet>
     <servlet-name>Graph</servlet-name>
