@@ -120,4 +120,15 @@
     <servlet-name>database</servlet-name>
     <url-pattern>/DBAccess</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>pro2</servlet-name>
+    <servlet-class>classes.Proc2</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>pro2</servlet-name>
+    <url-pattern>/pro2</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

@@ -7,6 +7,7 @@
 <title>詳細画面</title>
 </head>
 <body>
+
 <p>ID = <%= request.getAttribute("id") %></p>
 <p>名前 = <%= request.getAttribute("name") %></p>
 <p>所属部署 = <%= request.getAttribute("dept1") %></p>
