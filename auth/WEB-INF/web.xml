@@ -20,7 +20,6 @@
     <url-pattern>/CustomAuth2</url-pattern>
   </filter-mapping>
 
-
   <servlet>
     <servlet-name>CustomAuth1</servlet-name>
     <servlet-class>classes.CustomAuth1</servlet-class>
