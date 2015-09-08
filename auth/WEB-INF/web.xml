@@ -60,47 +60,47 @@
     <servlet-name>LoginCheck</servlet-name>
     <url-pattern>/LoginCheck</url-pattern>
   </servlet-mapping>
-  
+
     <servlet>
     <servlet-name>Logout</servlet-name>
     <servlet-class>classes.Logout1</servlet-class>
   </servlet>
-  
+
     <servlet-mapping>
     <servlet-name>Logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
-  
+
     <servlet>
     <servlet-name>select</servlet-name>
     <jsp-file>/select_emp.jsp</jsp-file>
   </servlet>
-  
+
      <servlet-mapping>
     <servlet-name>select</servlet-name>
     <url-pattern>/select_emp</url-pattern>
   </servlet-mapping>
-  
+
       <servlet>
     <servlet-name>practice</servlet-name>
     <jsp-file>/itiran.jsp</jsp-file>
   </servlet>
-  
+
      <servlet-mapping>
     <servlet-name>practice</servlet-name>
     <url-pattern>/itiran.jsp</url-pattern>
   </servlet-mapping>
-  
+
       <servlet>
     <servlet-name>show</servlet-name>
     <jsp-file>/show.jsp</jsp-file>
   </servlet>
-  
+
      <servlet-mapping>
     <servlet-name>show</servlet-name>
     <url-pattern>/show</url-pattern>
   </servlet-mapping>
-  
+
 <servlet>
     <servlet-name>pro</servlet-name>
     <servlet-class>classes.Proc</servlet-class>
@@ -110,7 +110,7 @@
     <servlet-name>pro</servlet-name>
     <url-pattern>/pro</url-pattern>
   </servlet-mapping>
-  
+
   <servlet>
     <servlet-name>database</servlet-name>
     <servlet-class>classes.DBAccess</servlet-class>
@@ -121,6 +121,27 @@
     <url-pattern>/DBAccess</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>pro2</servlet-name>
+    <servlet-class>classes.Proc2</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>pro2</servlet-name>
+    <url-pattern>/pro2</url-pattern>
+  </servlet-mapping>
+  
+
+   <servlet>
+    <servlet-name>Graph</servlet-name>
+    <servlet-class>classes.Graph</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Graph</servlet-name>
+    <url-pattern>/Graph.jpg</url-pattern>
+  </servlet-mapping>
+
   <servlet>
     <servlet-name>pro2</servlet-name>
     <servlet-class>classes.Proc2</servlet-class>
