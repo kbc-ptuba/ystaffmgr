@@ -1,7 +1,21 @@
+<%@ page import="java.sql.*, classes.DBAccess"
+    contentType="text/html; charset=UTF-8" %>
+<%
+//MyDBAccess のインスタンスを生成する
+classes.DBAccess db = new classes.DBAccess();
+
+//データベースへのアクセス
+db.open();
+
+//メンバーを取得
+ResultSet rs = db.getResultSet("select goods_id,goods,field_id,price,stock from goods_master where ? = like'?%'");
+
+%>
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ page import="java.sql.*" %>
 
 <html>
 <head>
