@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +33,7 @@ public class Proc extends HttpServlet {
 
         try{
             //GOODS_MASTER表
-            	PreparedStatement pstmt = db.prepareStatement("select GOODS_ID,GOODS,FIELD_ID,STOCK,PRICE,SUPPLIER_ID from GOODS_MASTER where GOODS_ID = ?");
+            	PreparedStatement pstmt = db.prepareStatement("select GOODS_ID,GOODS,STOCK,PRICE, from GOODS_MASTER where GOODS_ID = ?");
             	pstmt.setInt(1,ss);
             	ResultSet rs = pstmt.executeQuery();
 
@@ -47,48 +46,44 @@ public class Proc extends HttpServlet {
             	PreparedStatement pstmt3 = db.prepareStatement("select SUM(STOCK_NUM) from STOCKING where GOODS_ID = any(select GOODS_ID from GOODS_MASTER where GOODS_ID = ?)");
             	pstmt3.setInt(1,ss);
             	ResultSet rs3 = pstmt3.executeQuery();
-
-            //SUPPLIER表
-            	PreparedStatement pstmt4 = db.prepareStatement("select SUPPLIER from SUPPLIER where SUPPLIER_ID = any(select SUPPLIER_ID from GOODS_MASTER where GOODS_MASTER = ?)");
+            	PreparedStatement pstmt4 = db.prepareStatement("select SUM(STOCK_NUM) from STOCKING where GOODS_ID = any(select GOODS_ID from GOODS_MASTER where GOODS_ID = ?)");
             	pstmt4.setInt(1,ss);
             	ResultSet rs4 = pstmt4.executeQuery();
+            	PreparedStatement pstmt5 = db.prepareStatement("select SUM(STOCK_NUM) from STOCKING where GOODS_ID = any(select GOODS_ID from GOODS_MASTER where GOODS_ID = ?)");
+            	pstmt5.setInt(1,ss);
+            	ResultSet rs5 = pstmt5.executeQuery();
+            	PreparedStatement pstmt6 = db.prepareStatement("select SUM(STOCK_NUM) from STOCKING where GOODS_ID = any(select GOODS_ID from GOODS_MASTER where GOODS_ID = ?)");
+            	pstmt6.setInt(1,ss);
+            	ResultSet rs6 = pstmt6.executeQuery();
+
+            //SUPPLIER表
+            	PreparedStatement pstmtX = db.prepareStatement("select SUPPLIER from SUPPLIER where SUPPLIER_ID = any(select SUPPLIER_ID from GOODS_MASTER where GOODS_ID = ?)");
+            	pstmtX.setInt(1,ss);
+            	ResultSet rsX = pstmtX.executeQuery();
 
         //データを取り出りして出力するための準備
         		rs.next();//user_master
-        		int id = rs.getInt("emp_id");	//社員ID
-        		String name = rs.getString("emp_name");	//名前
-        		String ent  = rs.getString("ent");	//入社日
-        		String addr  = rs.getString("addr");	//住所
-        		String birth  = rs.getString("birth");	//生年月日
-        		String gender  = rs.getString("gender");	//性別
-        		String mail_pc  = rs.getString("mail_pc");	//メールPC
-        		String mail_tel  = rs.getString("mail_tel");	//メール携帯
-        		int tel  = rs.getInt("tel");	//電話番号
-        		Timestamp renew  = rs.getTimestamp("renew");	//最終更新日時
-        		String making  = rs.getString("making");	//作成日
+        		int GOODS_ID = rs.getInt("GOODS_ID");	//商品ID
+        		String GOODS = rs.getString("GOODS");	//商品名
+        		int STOCK  = rs.getInt("STOCK");	//在庫数
+        		int PRICE  = rs.getInt("PRICE");	//販売単価
 
-        		req.setAttribute("id",id);
-        		req.setAttribute("name",name);
-        		req.setAttribute("ent",ent);
-        		req.setAttribute("addr",addr);
-        		req.setAttribute("birth",birth);
-        		req.setAttribute("gender",gender);
-        		req.setAttribute("mail_pc",mail_pc);
-        		req.setAttribute("mail_tel",mail_tel);
-        		req.setAttribute("tel",tel);
-        		req.setAttribute("renew",renew);
-        		req.setAttribute("making",making);
+
+        		req.setAttribute("GOODS_ID",GOODS_ID);
+        		req.setAttribute("GOODS",GOODS);
+        		req.setAttribute("STOCK",STOCK);
+        		req.setAttribute("PRICE",PRICE);
 
         		rs2.next();//exec
-            	String exec  = rs2.getString("exec");	//役職
-            	req.setAttribute("exec",exec);
+            	String FIELD  = rs2.getString("FIELD");	//商品分野
+            	req.setAttribute("FIELD",FIELD);
 
                 rs3.next();//dept1
-                String dept1 = rs3.getString("dept1");	//所属部署
-            	req.setAttribute("dept1",dept1);
+                String STOCK_NUM = rs3.getString("STOCK_NUM");	//所属部署
+            	req.setAttribute("STOCK_NUM",STOCK_NUM);
 
-                rs4.next();//dept2
-                String dept2 = rs4.getString("dept2");	//所属課
+                rsX.next();//dept2
+                String dept2 = rsX.getString("dept2");	//所属課
             	req.setAttribute("dept2",dept2);
 
             	//show.jspへ移動
