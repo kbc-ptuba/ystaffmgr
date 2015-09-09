@@ -1,68 +1,52 @@
-//package classes;
-//
-//import java.io.BufferedOutputStream;
-//import java.io.OutputStream;
-//
-//import javax.servlet.http.HttpServlet;
-//import javax.servlet.http.HttpServletRequest;
-//import javax.servlet.http.HttpServletResponse;
-//
-//import org.jfree.chart.ChartFactory;
-//import org.jfree.chart.ChartUtilities;
-//import org.jfree.chart.JFreeChart;
-//import org.jfree.chart.plot.PlotOrientation;
-//import org.jfree.data.category.CategoryDataset;
-//import org.jfree.data.general.DatasetUtilities;
-//
-//public class Graph extends HttpServlet {
-//
-//    protected void doGet(HttpServletRequest req, HttpServletResponse res) {
-//	int width = 640;
-//	int height = 640;
-//
-//	try {
-//	    // 縦横サイズの指定
-//	    width = Integer.parseInt(req.getParameterValues ("width")[0]);
-//	    height = Integer.parseInt(req.getParameterValues ("height")[0]);
-//	} catch (Exception e) {
-//	    e.printStackTrace();
-//	}
-//
-//	// 棒グラフのJFreeChartを作成
-//	JFreeChart chart = createChart();
-//	// コンテンツタイプをpngにする.
-//	res.setContentType("image/png");
-//	OutputStream outputStream;
-//	System.err.println("write png width = " + width + " / height = " + height);
-//	try {
-//	    outputStream = new BufferedOutputStream(res.getOutputStream());
-//	    // JFreeChartをPNGとして出力
-//	    ChartUtilities.writeChartAsPNG(outputStream, chart, width, height);
-//	    outputStream.close();
-//	} catch (Exception e) {
-//	    e.printStackTrace();
-//	}
-//    }
-//
-//    /**
-//     * 棒グラフのJFreeChartを作成する.
-//     */
-//    private JFreeChart createChart () {
-//	// 棒グラフのデータ
-//        double[][] data = new double[][]
-//	{{1.0, 2.0, 3.0, 4.0},
-//	 {5.0, 6.0, 7.0, 8.0},
-//	 {9.0, 10.0, 11.0, 12.0},
-//	 {13.0, 14.0, 15.0, 16.0}};
-//        // CategoryDatasetオブジェクトの作成
-//	CategoryDataset cData = DatasetUtilities.createCategoryDataset("RowKey ", "ColKey ", data);
-//	// CategoryDatasetをデータにしてJFreeChartを作成
-//	JFreeChart barChart = ChartFactory.createBarChart ("SampleBarChart",
-//							   "categoryAxisLabel",
-//							   "valueAxisLabel",
-//							   cData, PlotOrientation.VERTICAL,
-//							   false, false, false);
-//	return barChart;
-//    }
-//
-//}
+package classes;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.servlet.ServletUtilities;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+/**
+* 棒グラフのサンプル
+*/
+public class Graph {
+    String x;
+    public static void main(String[] args) {
+        new Graph();
+    }
+    public Graph(){
+        // 表示するデータの作成
+        String series1 = "第一";
+        String series2 = "第二";
+        String series3 = "第三";
+        // カテゴリーの設定
+        String category1 = "カテゴリー 1";
+        String category2 = "カテゴリー 2";
+        String category3 = "カテゴリー 3";
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        dataset.addValue(1.0, series1, category1);
+        dataset.addValue(4.0, series1, category2);
+        dataset.addValue(5.0, series1, category3);
+
+        dataset.addValue(5.0, series2, category1);
+        dataset.addValue(7.0, series2, category2);
+        dataset.addValue(7.0, series2, category3);
+
+        dataset.addValue(6.0, series3, category1);
+        dataset.addValue(8.0, series3, category2);
+        dataset.addValue(8.0, series3, category3);
+
+        // JFreeChartオブジェクトの生成（タイトル、項目名など）
+        JFreeChart chart = ChartFactory.createBarChart("棒グラフのサンプル",
+        null, "値", dataset, PlotOrientation.VERTICAL, true,    true, false);
+
+        try {
+            x = ServletUtilities.saveChartAsPNG(chart, 500, 500,null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
+    public String getName(){
+        return x;
+    }
+}
