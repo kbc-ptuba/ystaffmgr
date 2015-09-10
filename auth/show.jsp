@@ -4,23 +4,40 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="itiran.css">
+
 <title>詳細画面</title>
 </head>
 <body>
+<TABLE border="1"  cellpadding="10" align="center">
+<tr><td>ID</td><td><%= request.getAttribute("id") %></td></tr>
+<tr><td>名前</td>
+<td><%= request.getAttribute("name") %></td></tr>
 
-<p>ID = <%= request.getAttribute("id") %></p>
-<p>名前 = <%= request.getAttribute("name") %></p>
-<p>所属部署 = <%= request.getAttribute("dept1") %></p>
-<p>所属課 = <%= request.getAttribute("dept2") %></p>
-<p>役職 = <%= request.getAttribute("exec") %></p>
-<p>入社日 = <%= request.getAttribute("ent") %></p>
-<p>住所 = <%= request.getAttribute("addr") %></p>
-<p>生年月日 = <%= request.getAttribute("birth") %></p>
-<p>性別 = <%= request.getAttribute("gender") %></p>
-<p>メールPC = <%= request.getAttribute("mail_pc") %></p>
-<p>メール携帯 = <%= request.getAttribute("mail_tel") %></p>
-<p>電話番号= <%= request.getAttribute("tel") %></p>
-<p>最終更新日時 = <%= request.getAttribute("renew") %></p>
-<p>作成日 = <%= request.getAttribute("making") %></p>
+<tr><td>所属部署</td>
+<td><%= request.getAttribute("dept1") %></td></tr>
+<tr><td>所属課</td>
+<td><%= request.getAttribute("dept2") %></td></tr>
+<tr><td>役職</td>
+<td><%= request.getAttribute("exec") %></td></tr>
+<tr><td>入社日</td>
+<td><%= request.getAttribute("ent") %></td></tr>
+<tr><td>住所</td>
+<td><%= request.getAttribute("addr") %></td></tr>
+<tr><td>生年月日</td>
+<td><%= request.getAttribute("birth") %></td></tr>
+<tr><td>性別</td>
+<td><%= request.getAttribute("gender") %></td></tr>
+<tr><td>メールPC</td>
+<td> <%= request.getAttribute("mail_pc") %></td></tr>
+<tr><td>メール携帯 </td>
+<td><%= request.getAttribute("mail_tel") %></td></tr>
+<tr><td>電話番号</td>
+<td><%= request.getAttribute("tel") %></td></tr>
+<tr><td>最終更新日時 </td>
+<td> <%= request.getAttribute("renew") %></td></tr>
+<tr><td>作成日 </td>
+<td> <%= request.getAttribute("making") %></td></tr>
+</TABLE>
 </body>
 </html>

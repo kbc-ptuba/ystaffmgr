@@ -1,52 +1,51 @@
 package classes;
 
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.servlet.ServletUtilities;
-import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
-/**
-* 棒グラフのサンプル
-*/
-public class Graph {
-    String x;
-    public static void main(String[] args) {
-        new Graph();
+public class Graph extends HttpServlet {
+  public void doGet(HttpServletRequest request
+                  , HttpServletResponse response)
+    throws ServletException, IOException {
+
+    // グラフ生成用の元データを用意
+    String[][] aryDat={
+      {"書籍紹介","150000"},
+      {"Q＆A掲示板","55500"},
+      {"関連サイト","75000"},
+      {"レンタルサーバ","83100"},
+      {"RSSフィード","22500"}
+    };
+
+    // 円グラフの基となるデータセットを用意
+    DefaultPieDataset objDpd=new DefaultPieDataset();
+
+    // データセットに項目名と値のを順にセット
+    for(int i=0;i<aryDat.length;i++){
+      objDpd.setValue(aryDat[i][0],Integer.parseInt(aryDat[i][1]));
     }
-    public Graph(){
-        // 表示するデータの作成
-        String series1 = "第一";
-        String series2 = "第二";
-        String series3 = "第三";
-        // カテゴリーの設定
-        String category1 = "カテゴリー 1";
-        String category2 = "カテゴリー 2";
-        String category3 = "カテゴリー 3";
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(1.0, series1, category1);
-        dataset.addValue(4.0, series1, category2);
-        dataset.addValue(5.0, series1, category3);
 
-        dataset.addValue(5.0, series2, category1);
-        dataset.addValue(7.0, series2, category2);
-        dataset.addValue(7.0, series2, category3);
+    // 3次元円グラフを生成（第1引数からグラフタイトル、
+    // データセット、判例を表示するか、ツールチップを
+    // 表示するか、URLを動的に生成するかを指定）
+    JFreeChart objCht=ChartFactory.createPieChart3D(
+      "サイトアクセスログ",objDpd,true,false,false);
 
-        dataset.addValue(6.0, series3, category1);
-        dataset.addValue(8.0, series3, category2);
-        dataset.addValue(8.0, series3, category3);
-
-        // JFreeChartオブジェクトの生成（タイトル、項目名など）
-        JFreeChart chart = ChartFactory.createBarChart("棒グラフのサンプル",
-        null, "値", dataset, PlotOrientation.VERTICAL, true,    true, false);
-
-        try {
-            x = ServletUtilities.saveChartAsPNG(chart, 500, 500,null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-	}
-    public String getName(){
-        return x;
-    }
+    // バイナリ出力ストリームにJPEG形式で画像を出力
+    // 600×400ピクセル）
+    response.setContentType("image/jpeg");
+    ServletOutputStream objSos=response.getOutputStream();
+    ChartUtilities.writeChartAsJPEG(objSos,objCht,600,400);
+  }
 }

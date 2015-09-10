@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+.title{
+	margin-left: 10px;
+	margin-top:  10px;
+}
+
+.title2{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-top:  20px;
+	background-color: blue;
+	color: white;
+}
+
+.logout{
+	font-size: 12px;
+}
+
+span{ext-align:justify;
+text-justify:distribute-all-lines;
+width:100px;
+
+}
+
+a:link { color: #ffffff; }
+a:visited { color: #ffffff; }
+a:hover { color: #ffffff; }
+a:active { color: #ff8000; }

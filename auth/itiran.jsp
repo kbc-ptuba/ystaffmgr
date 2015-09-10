@@ -55,13 +55,13 @@ ResultSet rs = db.getResultSet("select goods_id,goods,field_id,price,stock from 
         <tr>
             <td>ユーザID</td>
         </tr>
-        <tr>				
+        <tr>
             <td><a href="javascript:document.f.submit()">1194012016</a>
             <input type=hidden name=userId value="1194012016"/></td>		<!-- 元々tableタグの外にあったのをid列だけ -->
         </tr>
     </table>
 
-    
+
 
 </form>
 </body>
